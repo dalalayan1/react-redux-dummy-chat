@@ -1,0 +1,17 @@
+*,body {
+  margin: 0;
+  padding: 0;
+}
+
+.chat-box-wrapper {
+  width: 50%;
+  float: left;
+  text-align: center;
+  padding: 20px 0;  
+  
+}
+
+input {
+  margin: 20px 0;  
+}
+
