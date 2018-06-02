@@ -5,13 +5,75 @@
 
 .chat-box-wrapper {
   width: 50%;
-  float: left;
-  text-align: center;
-  padding: 20px 0;  
+    float: left;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
   
 }
 
-input {
-  margin: 20px 0;  
+.userName {
+  padding: 0 0 20px 0;
 }
 
+.chat-box {
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px 10px #ddd;  
+}
+
+.text-div {
+  margin: 10px 0;
+  padding: 10px 0;
+  text-align: left;
+}
+
+.text-div.sameuser {
+  background: #ddd;
+}
+
+.text-div > span {
+  padding: 0 10px;
+}
+
+.input-value {
+  width: 60%;
+  padding: 10px 20px;
+  margin: 20px 0;    
+}
+
+.entry-form {
+  width: 30%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  box-shadow: 0 0 20px 10px #ddd;   
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center; 
+}
+
+.user-name {
+  width: 80%;
+  box-sizing: border-box;
+  padding: 10px 20px;
+  margin: 20px 0;
+  text-transform: capitalize;
+}
+
+.submit-button {
+  width: 20%;
+  padding: 10px 15px;
+  margin-left: 10px;
+  background: #ccc;
+  border: 0 none;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+b {
+  text-transform: uppercase;
+}

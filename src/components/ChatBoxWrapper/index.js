@@ -30,11 +30,11 @@ class ChatBoxWrapper extends Component {
         userid,
         name: userName
     } = this.props,
-    userMsg = document.querySelectorAll(`#inputvalue-user${userid}`)[0].value;
+    userMsg = document.querySelectorAll(`#inputvalueUser${userid}`)[0].value;
 
     userMsg && this.props.addMsg({ userid, userName, userMsg });
 
-    document.querySelectorAll(`#inputvalue-user${userid}`)[0].value = '';
+    document.querySelectorAll(`#inputvalueUser${userid}`)[0].value = '';
   }
 
   render() {
@@ -48,8 +48,17 @@ class ChatBoxWrapper extends Component {
     return (
       <div className={`chat-box-wrapper user${userid}`}>
         <h2 className="user-name">{ name }</h2>
-        <ChatBox {...this.props}/>
-        <UserInputForm userid={userid} onSubmitCallback={this.handleOnSubmit} />
+        { msgs && msgs.length && <ChatBox {...this.props}/> }
+        <UserInputForm
+          userid={userid}
+          inputId = {`inputvalueUser${userid}`}
+          inputClass = {"input-value"}
+          formClassName = {`msg-form-user${userid}`}
+          placeholder = {"Enter msg..."}
+          buttonValue = {"Send"}
+          buttonClass = {"submit-button"}
+          onSubmitCallback={this.handleOnSubmit}
+        />
       </div>
     );
   }

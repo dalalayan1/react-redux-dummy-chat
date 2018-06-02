@@ -33,7 +33,7 @@ class ChatBox extends Component {
       <div className={`chat-box user${useridProps}`}>
         {
           msgs && msgs.map(({userid, userName, userMsg}, idx) => (
-            <div className={`text-div ${useridProps === userid ? "sameuser" : ""}`}>
+            <div key={idx} className={`text-div ${useridProps === userid ? "sameuser" : ""}`}>
               <span><b>{userName}</b></span>:<span>{userMsg}</span>
             </div>
           ))

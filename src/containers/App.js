@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import App from '../components/App';
 import { bindActionCreators } from 'redux';
-import { } from '../actions';
+import { addUser } from '../actions';
 
 function mapStateToProps(state) {
     return {
@@ -13,6 +13,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
+    addUser: bindActionCreators(addUser, dispatch)      
   }
 }
 

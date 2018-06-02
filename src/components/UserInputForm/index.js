@@ -1,38 +1,11 @@
 
 import React, { Component } from "react";
 
-class UserInputForm extends Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-          showFolderModal: false
-        }
-    }
-
-  componentDidMount() {
-    
-  }
-
-  
-
-  componentWillReceiveProps(newProps) {
-  }
-
-  render() {
-
-    const {
-        userid,
-        onSubmitCallback
-    } = this.props;
-
-    return (
-      <form className={`user-input${userid}`} onSubmit={onSubmitCallback}>
-        <input type="text" id={`inputvalue-user${userid}`} placeholder="Enter msg..." />
-        <input type="submit" value="Send" />
-      </form>
-    );
-  }
-}
+const UserInputForm = ({ userid, inputId, inputClass, buttonClass, buttonValue, formClassName, placeholder, onSubmitCallback}) => (
+  <form className={formClassName} onSubmit={onSubmitCallback}>
+    <input type="text" id={inputId} className={inputClass} placeholder={placeholder} />
+    <input type="submit" className={buttonClass} value={buttonValue} />
+  </form>
+);
 
 export default UserInputForm;
