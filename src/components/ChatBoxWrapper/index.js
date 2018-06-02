@@ -34,7 +34,22 @@ class ChatBoxWrapper extends Component {
 
     userMsg && this.props.addMsg({ userid, userName, userMsg });
 
-    document.querySelectorAll(`#inputvalueUser${userid}`)[0].value = '';
+    // userMsg && localStorage.setItem("messageFlag", `${Math.random()}`);
+    const messagesArray = JSON.parse(localStorage.getItem("messagesArray")),
+      msgObj = {
+        userid,
+        userName,
+        userMsg
+      };
+    if ( messagesArray && messagesArray.length ) {
+      messagesArray.push(msgObj);
+    userMsg && localStorage.setItem("messagesArray", JSON.stringify(messagesArray));      
+    }
+    else {
+    userMsg && localStorage.setItem("messagesArray", JSON.stringify([msgObj]));      
+    }
+
+    document.querySelectorAll(`#inputvalueUser${userid}`)[0].value = "";
   }
 
   render() {

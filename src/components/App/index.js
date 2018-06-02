@@ -16,30 +16,30 @@ class App extends Component {
   componentDidMount() {
     window.addEventListener("load", () => {
       const usersObj = JSON.parse(localStorage.getItem("users"));
-      console.log(usersObj)
       usersObj && this.setState({
                 users: usersObj
               });
     });
     window.addEventListener("storage", () => {
-      console.log('fired')
-      debugger
+      const messagesArray = JSON.parse(localStorage.getItem("messagesArray"));
+      messagesArray && messagesArray.length && this.setState({ messages: messagesArray });
     }, false);
   }
 
   
 
   componentWillReceiveProps(newProps) {
-    const {
-      messages: oldMessages
-    } = this.props.appReducer,
-    {
-      messages: newMessages
-    } = newProps.appReducer;
+    debugger
+    // const {
+    //   messages: oldMessages
+    // } = this.props.appReducer,
+    // {
+    //   messages: newMessages
+    // } = newProps.appReducer;
 
-    if( oldMessages.length < newMessages.length ) {
-      return true;
-    }
+    // if( oldMessages.length < newMessages.length ) {
+    //   this.setState({ messages: newMessages });
+    // }
   }
 
   handleOnSubmit = (evt) => {
@@ -65,8 +65,7 @@ class App extends Component {
 
   render() {
 
-    const { messages } = this.props.appReducer,
-      { currentUser } = this.state;
+    const { messages, currentUser } = this.state;
 
     return (
       <div className="chat-app">
@@ -83,7 +82,7 @@ class App extends Component {
                           />
         }
         { 
-          currentUser && <ChatBoxWrapperContainer key={1} userid={1} name={currentUser} msgs={ messages }/>
+          currentUser && <ChatBoxWrapperContainer userid={1} name={currentUser} msgs={ messages }/>
         }
       </div>
     );
