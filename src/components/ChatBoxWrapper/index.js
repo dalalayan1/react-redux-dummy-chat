@@ -8,20 +8,20 @@ class ChatBoxWrapper extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          showFolderModal: false
+          msgs: []
         }
     }
 
   componentDidMount() {
-    
+    this.setState({
+      msgs: this.props.msgs
+    });
   }
 
   
 
   componentWillReceiveProps(newProps) {
-    if(newProps.msgs && newProps.msgs.length) {
-      return true;
-    }
+    
   }
 
   handleOnSubmit = (event) => {  
@@ -49,6 +49,10 @@ class ChatBoxWrapper extends Component {
     userMsg && localStorage.setItem("messagesArray", JSON.stringify([msgObj]));      
     }
 
+    this.setState({
+      msgs: [...this.state.msgs, msgObj]
+    });
+
     document.querySelectorAll(`#inputvalueUser${userid}`)[0].value = "";
   }
 
@@ -56,9 +60,9 @@ class ChatBoxWrapper extends Component {
 
     const {
         name,
-        userid,
-        msgs
-    } = this.props;
+        userid
+    } = this.props,
+    { msgs } = this.state;
 
     return (
       <div className={`chat-box-wrapper user${userid}`}>

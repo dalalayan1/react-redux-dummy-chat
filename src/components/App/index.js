@@ -19,6 +19,8 @@ class App extends Component {
       usersObj && this.setState({
                 users: usersObj
               });
+      const messagesArray = JSON.parse(localStorage.getItem("messagesArray"));
+      messagesArray && messagesArray.length && this.setState({ messages: messagesArray });
     });
     window.addEventListener("storage", () => {
       const messagesArray = JSON.parse(localStorage.getItem("messagesArray"));
