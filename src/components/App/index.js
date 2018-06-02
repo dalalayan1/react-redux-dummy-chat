@@ -29,7 +29,6 @@ class App extends Component {
   
 
   componentWillReceiveProps(newProps) {
-    debugger
     // const {
     //   messages: oldMessages
     // } = this.props.appReducer,
