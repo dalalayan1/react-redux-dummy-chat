@@ -45,7 +45,6 @@ class App extends Component {
 
   handleOnSubmit = (evt) => {
     evt.preventDefault();
-    console.log(this.state);
     const { users } = this.state,
       currentUser = document.querySelectorAll("#userName")[0].value;
     if( !currentUser ) {

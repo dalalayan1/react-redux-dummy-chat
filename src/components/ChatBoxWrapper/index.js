@@ -13,7 +13,7 @@ class ChatBoxWrapper extends Component {
     }
 
   componentDidMount() {
-    this.setState({
+    this.props.msgs && this.setState({
       msgs: this.props.msgs
     });
   }
@@ -48,7 +48,6 @@ class ChatBoxWrapper extends Component {
     else {
     userMsg && localStorage.setItem("messagesArray", JSON.stringify([msgObj]));      
     }
-
     this.setState({
       msgs: [...this.state.msgs, msgObj]
     });
